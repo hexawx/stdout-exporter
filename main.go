@@ -21,6 +21,10 @@ func (e *StdoutExporter) Init(config map[string]string) error {
 	return nil
 }
 
+func (p *StdoutExporter) Name() (string, error) {
+	return "StdoutExporter", nil
+}
+
 func (e *StdoutExporter) Export(record core.WeatherRecord) error {
 	fmt.Printf("[%s] Temp: %.2f°C | Hum: %.2f%%\n",
 		e.Prefix, record.Temperature, record.Humidity)
